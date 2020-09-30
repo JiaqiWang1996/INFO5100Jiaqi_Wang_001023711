@@ -164,6 +164,8 @@ public class CreatePanel extends javax.swing.JPanel {
         lblBiometric_identifiers.setFont(new java.awt.Font("宋体", 0, 14)); // NOI18N
         lblBiometric_identifiers.setText("Biometric identifiers");
 
+        txtphotopath.setText("input your photo link");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(

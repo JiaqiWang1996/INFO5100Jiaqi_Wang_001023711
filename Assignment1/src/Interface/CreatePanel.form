@@ -453,6 +453,9 @@
     <Component class="javax.swing.JTextField" name="txtBiometricidentifiers">
     </Component>
     <Component class="javax.swing.JTextField" name="txtphotopath">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="input your photo link"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
