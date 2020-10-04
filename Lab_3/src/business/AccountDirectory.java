@@ -1,0 +1,47 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package business;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+/**
+ *
+ * @author User
+ */
+public class AccountDirectory {
+   private ArrayList<Account>accountList;
+
+    public AccountDirectory() {
+        
+        this.accountList=new ArrayList<Account>();//add memory
+    }
+
+   
+    public ArrayList<Account> getAccountList() {
+        return accountList;
+    }
+
+    public void setAccountList(ArrayList<Account> accountList) {
+        this.accountList = accountList;
+    }
+    public Account addAccount(){
+    Account account=new Account();
+    accountList.add(account);
+    return account;
+    }
+public void deleteAccount(Account account){
+       accountList.remove(account);//deleted obj doesnt need to return
+}
+    public Account searchAccount(String accountNumber){
+      for(Account account :accountList){
+      if(account.getAccountNumber().equals(accountNumber)){
+      return account;
+              }
+      }
+      return null;
+    }
+}
