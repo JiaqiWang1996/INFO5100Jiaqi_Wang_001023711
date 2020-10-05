@@ -155,8 +155,10 @@ private JPanel userProcessContainer;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
-        // TODO add your handling code here:
-        if(txtRoutingNumber.getText().length()==0||txtBankName.getText().length()==0||txtAccountNumber.getText().length()==0||txtAccountNumber.getText().length()==0){
+        // TODO add your handling code here
+        
+        
+        if(txtRoutingNumber.getText().length()==0||txtBankName.getText().length()==0||txtAccountNumber.getText().length()==0||txtBalance.getText().length()==0||txtBalance.getText().replaceAll("[0-9]","").length()!=0){
             
             //无输入不是null，表示为长度为0
             JOptionPane.showMessageDialog(null, "Your input is imcomplete or invalid,please try again","Warning",JOptionPane.WARNING_MESSAGE);
