@@ -242,7 +242,9 @@ private Product p;
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        
+          upc.remove(this);
+      CardLayout layout = (CardLayout) upc.getLayout();
+      layout.previous(upc);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void viewProdjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewProdjButton2ActionPerformed
