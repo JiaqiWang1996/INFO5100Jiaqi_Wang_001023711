@@ -77,7 +77,7 @@ public class AnalysisHelper {
    
        for(Post post:posts.values()){  
            if (post.getPostId()==posts.get(most_key).getPostId()) {
-             System.out.println("Find the post with most liked comments:"+post);   
+             System.out.println("Find the post with most comments:"+post);   
            }
     } }
     
