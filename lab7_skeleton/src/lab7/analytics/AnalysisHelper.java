@@ -40,7 +40,7 @@ public class AnalysisHelper {
     public void getpostWithMostLikedComments(){
       Map<Integer, Comment> comments = DataStore.getInstance().getComments();
       Comment comment1=null;
-      for(Entry<Integer,Comment>entry:comments.entrySet()){
+      for(Map.Entry<Integer,Comment>entry:comments.entrySet()){
       comment1=entry.getValue();
           if (comment1!=null) {
               break;
@@ -52,14 +52,17 @@ public class AnalysisHelper {
               mostliked_key=key;
           }
       }
-          
-       System.out.println("Find the post with most liked comments."+comments.get(mostliked_key).getPostId());
-    } 
+      Map<Integer,Post>postsMap=DataStore.getInstance().getPosts();
+       for(Post post:postsMap.values()){  
+           if (post.getPostId()==comments.get(mostliked_key).getPostId()) {
+             System.out.println("Find the post with most liked comments:"+post);   
+           }
+    } }
     
     public void getpostWithMostComments(){
     Map<Integer, Post>posts= DataStore.getInstance().getPosts();
    Post post1=null;
-   for(Entry<Integer,Post>entry:posts.entrySet()){
+   for(Map.Entry<Integer,Post>entry:posts.entrySet()){
        post1=entry.getValue();
    if(post1!=null){
    break;
@@ -72,8 +75,11 @@ public class AnalysisHelper {
        }
    }
    
-        System.out.println("Find the post with most comments"+posts.get(most_key).getPostId());
-    }
+       for(Post post:posts.values()){  
+           if (post.getPostId()==posts.get(most_key).getPostId()) {
+             System.out.println("Find the post with most liked comments:"+post);   
+           }
+    } }
     
     public void Find_Top_5_inactive_users_based_on_total_posts_number(){
     Map<Integer,Post>posts=DataStore.getInstance().getPosts();
@@ -97,8 +103,14 @@ public class AnalysisHelper {
             
         }  
       } );
-      
-       System.out.println("Find The Top 5 inactive users based on total posts number"+list.get(0).getKey()+" "+list.get(1).getKey()+" "+list.get(2).getKey()+" "+list.get(3).getKey()+" "+list.get(4).getKey()) ;
+      Map<Integer,User>users=DataStore.getInstance().getUsers();
+      list=list.subList(0, 5);
+          for(Map.Entry<Integer,Integer> entry:list){
+              for(User user:users.values()){
+      if(user.getId()==entry.getKey()){
+          System.out.println("Find The Top 5 inactive users based on total posts number:"+user);
+      }         
+      }}
     }
     
     public void Find_Top_5_inactive_users_based_on_total_comments_they_created(){
@@ -124,9 +136,14 @@ public class AnalysisHelper {
             
         }  
       } );
-      
-       System.out.println("Find The Top 5 inactive users based on total comments they created"+list.get(0).getKey()+" "+list.get(1).getKey()+" "+list.get(2).getKey()+" "+list.get(3).getKey()+" "+list.get(4).getKey()) ;
-    }
+      Map<Integer,User>users=DataStore.getInstance().getUsers();
+            list=list.subList(0, 5);
+          for(Map.Entry<Integer,Integer> entry:list){
+              for(User user:users.values()){
+      if(user.getId()==entry.getKey()){
+          System.out.println("Find The Top 5 inactive users based on total comments:"+user);
+      }         
+      }}}
     
     public void Find_Top_5_inactive_users_overall__sum_of_comments_posts_and_likes(){
       Map<Integer,Comment>comments=DataStore.getInstance().getComments();
@@ -161,8 +178,14 @@ public class AnalysisHelper {
         }  
       } );
       
-       System.out.println("Top 5 inactive users overall (sum of comments, posts and likes):"+list.get(0).getKey()+" "+list.get(1).getKey()+" "+list.get(2).getKey()+" "+list.get(3).getKey()+" "+list.get(4).getKey()) ;
-    }
+      Map<Integer,User>users=DataStore.getInstance().getUsers();
+            list=list.subList(0, 5);
+          for(Map.Entry<Integer,Integer> entry:list){
+              for(User user:users.values()){
+      if(user.getId()==entry.getKey()){
+          System.out.println("Find The Top 5 inactive users overall (sum of comments, posts and likes):"+user);
+      }         
+      }}}
     
     public  void Find_Top_5_proactive_users_overall___sum_of_comments_posts_and_likes(){
     
@@ -198,8 +221,14 @@ public class AnalysisHelper {
         }  
       } .reversed());
       
-       System.out.println("Top 5 proactive users overall (sum of comments, posts and likes):"+list.get(0).getKey()+" "+list.get(1).getKey()+" "+list.get(2).getKey()+" "+list.get(3).getKey()+" "+list.get(4).getKey()) ;
-    }
+       Map<Integer,User>users=DataStore.getInstance().getUsers();
+           list=list.subList(0, 5);
+          for(Map.Entry<Integer,Integer> entry:list){
+              for(User user:users.values()){
+      if(user.getId()==entry.getKey()){
+          System.out.println("Find The Top 5 proactive users overall (sum of comments, posts and likes):"+user);
+      }         
+      }}}
     
     
     }
