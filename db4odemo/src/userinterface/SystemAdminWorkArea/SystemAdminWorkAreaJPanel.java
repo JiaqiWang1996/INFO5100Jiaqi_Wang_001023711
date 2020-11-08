@@ -151,15 +151,24 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetworkActionPerformed
-       
+       JPanel manageCustomerPanel=new ManageCustomer(this.userProcessContainer,this.ecosystem);
+       userProcessContainer.add("ManageCustomer",manageCustomerPanel);
+       CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
+       crdLyt.show(userProcessContainer,"ManageCustomer");
     }//GEN-LAST:event_btnManageNetworkActionPerformed
 
     private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
-        
+         JPanel manageRestaurantAdminPanel=new ManageRestaurantAdmin(this.userProcessContainer,this.ecosystem);
+       userProcessContainer.add("ManageRestaurantAdmin",manageRestaurantAdminPanel);
+       CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
+       crdLyt.show(userProcessContainer,"ManageRestaurantAdmin");  
     }//GEN-LAST:event_btnManageEnterpriseActionPerformed
 
     private void btnManageAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAdminActionPerformed
-       
+       JPanel manageRestaurantAdminPanel=new ManageDeliveryMan(this.userProcessContainer,this.ecosystem);
+       userProcessContainer.add("ManageDeliveryMan",manageRestaurantAdminPanel);
+       CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
+       crdLyt.show(userProcessContainer,"ManageDeliveryMan"); 
     }//GEN-LAST:event_btnManageAdminActionPerformed
 
     private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged

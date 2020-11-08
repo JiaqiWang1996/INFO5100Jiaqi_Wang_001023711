@@ -6,28 +6,44 @@
 package Business.Restaurant;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author harold
  */
 public class RestaurantDirectory {
-    private ArrayList<Restaurant>restaurantDirectory;
-    public RestaurantDirectory(){
-    restaurantDirectory=new ArrayList<Restaurant>();
+    private List<Restaurant> restaurantList;
+    
+    public RestaurantDirectory()
+    {
+        restaurantList=new ArrayList<Restaurant>();
+    }
+    
+    public Restaurant searchRestaurantByAdmin(String adminName)
+    {
+        for(Restaurant r:this.restaurantList)
+        {
+            if(r.getRestaurantAdmins().contains(adminName))
+                return r;
+        }
+        return null;
+    }
+    public Restaurant searchRestaurantByName(String name)
+    {
+        for(Restaurant r:this.restaurantList)
+        {
+            if(r.getRestaurantName().equals(name))
+                return r;
+        }
+        return null;
+    }
+    public void addRestaurant(Restaurant res)
+    {
+        this.restaurantList.add(res);
     }
 
-    public ArrayList<Restaurant> getRestaurantDirectory() {
-        return restaurantDirectory;
-    }
-
-    public void setRestaurantDirectory(ArrayList<Restaurant> restaurantDirectory) {
-        this.restaurantDirectory = restaurantDirectory;
-    }
-    public Restaurant CreateRestaurant( String name){
-     Restaurant restaurant=new Restaurant();
-     restaurant.setName(name);
-     restaurantDirectory.add(restaurant);
-     return restaurant;
+    public List<Restaurant> getRestaurantList() {
+        return restaurantList;
     }
 }

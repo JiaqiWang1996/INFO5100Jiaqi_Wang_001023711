@@ -8,6 +8,7 @@ import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
 
 import Business.Organization;
+import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -123,7 +124,28 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
         // Get user name
-       
+       String username=userNameJTextField.getText();
+        String password = new String(passwordField.getPassword());
+        UserAccount account=system.getUserAccountDirectory().authenticateUser(username, password);
+        if(account==null)
+        {
+            //User not exist!
+            JOptionPane.showMessageDialog(null, "User authentication failed!");
+        }
+        else
+        {
+            //User authentication succeed
+            userNameJTextField.setText("");
+            passwordField.setText("");
+            logoutJButton.setEnabled(true);
+            loginJButton.setEnabled(false);
+            
+            Role role=account.getRole();
+            JPanel userMainPanel=role.createWorkArea(container, account, system);
+            container.add("userMain",userMainPanel);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.next(container);
+        }
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed

@@ -21,12 +21,6 @@ public class EmployeeDirectory {
     public ArrayList<Employee> getEmployeeList() {
         return employeeList;
     }
-
-    public void setEmployeeList(ArrayList<Employee> employeeList) {
-        this.employeeList = employeeList;
-    }
-
-
     
     public Employee createEmployee(String name){
         Employee employee = new Employee();

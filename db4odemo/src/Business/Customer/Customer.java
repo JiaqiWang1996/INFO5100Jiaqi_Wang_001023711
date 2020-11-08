@@ -5,36 +5,17 @@
  */
 package Business.Customer;
 
+import Business.Restaurant.Order;
+import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author harold
  */
-public class Customer {
-       private String name;
-    private int id;
-    private static int count = 1;
-
-    public Customer() {
-        id = count;
-        count++;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+public class Customer extends UserAccount{
+    private List<Order> orders=new ArrayList<Order>();
+    private List<Order> shoppingCarts=new ArrayList<Order>();
     
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public String toString() {
-        return name;
-    }
-     
 }

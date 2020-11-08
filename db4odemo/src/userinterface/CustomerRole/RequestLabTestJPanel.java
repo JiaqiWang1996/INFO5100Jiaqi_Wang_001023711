@@ -7,6 +7,7 @@ package userinterface.CustomerRole;
 import Business.EcoSystem;
 import Business.Organization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.LabTestWorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.logging.Level;
@@ -31,6 +32,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         
         this.userAccount = account;
+       
        
     }
 
@@ -58,7 +60,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
                 requestTestJButtonActionPerformed(evt);
             }
         });
-        add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 95, -1, -1));
+        add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
 
         jLabel1.setText("Message");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 40, -1, -1));
@@ -70,7 +72,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 138, -1, -1));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, -1, -1));
 
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 130, -1));
@@ -91,7 +93,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        CustomerAreaJPanel dwjp = (CustomerAreaJPanel) component;
+        CustomerAreaJPanel2 dwjp = (CustomerAreaJPanel2) component;
         dwjp.populateRequestTable();
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
