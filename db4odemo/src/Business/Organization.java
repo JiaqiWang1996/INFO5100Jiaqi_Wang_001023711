@@ -28,11 +28,13 @@ public abstract class Organization {
         Customer("Customer"),
         DeliveryMan("Delivery"),
         SysAdmin("Sysadmin");
-        
+
         private String value;
+
         private Type(String value) {
             this.value = value;
         }
+
         public String getValue() {
             return value;
         }
