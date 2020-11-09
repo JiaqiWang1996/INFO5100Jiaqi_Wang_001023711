@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.Restaurant.Order;
 import Business.Restaurant.OrderItem;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,9 +31,14 @@ public class ViewOrderDetail extends javax.swing.JPanel {
         this.ecosystem=ecosystem;
         this.order=order;
         this.populate();
-        btnComment.setVisible(false);
+       
         this.lblOrderStatus.setText("Status: "+order.getStatus());
         this.lblDelivery.setText("Delivery man: "+order.getDeliveryManName());
+         if(this.order.getStatus().equals("Commented"))
+        {
+            this.txtComment.setText(this.order.getComment());
+            this.btnPost.setEnabled(false);
+        }
     }
      public void populate()
     {
@@ -57,25 +63,24 @@ public class ViewOrderDetail extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         lblDelivery = new javax.swing.JLabel();
         lblOrderStatus = new javax.swing.JLabel();
-        btnComment = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabOrders = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtComment = new javax.swing.JTextArea();
+        btnPost = new javax.swing.JButton();
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel7.setText("Order Detail");
 
+        lblDelivery.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         lblDelivery.setText("Delivery man:");
 
+        lblOrderStatus.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         lblOrderStatus.setText("Status:");
 
-        btnComment.setText("Comment");
-        btnComment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCommentActionPerformed(evt);
-            }
-        });
-
+        btnBack.setFont(new java.awt.Font("宋体", 3, 18)); // NOI18N
         btnBack.setText("<back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +96,7 @@ public class ViewOrderDetail extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "Dish", "Price"
+                "Name of Dish", "Price"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -104,6 +109,21 @@ public class ViewOrderDetail extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabOrders);
 
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel8.setText("We appreciate your timely feedback!!!");
+
+        txtComment.setColumns(20);
+        txtComment.setRows(5);
+        jScrollPane2.setViewportView(txtComment);
+
+        btnPost.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
+        btnPost.setText("Post the comment right now!");
+        btnPost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPostActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,50 +131,44 @@ public class ViewOrderDetail extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(159, 159, 159)
+                        .addComponent(jLabel7))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(66, 66, 66)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnPost)
+                                    .addComponent(lblOrderStatus)
+                                    .addComponent(lblDelivery)))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblOrderStatus)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblDelivery)))))
-                .addContainerGap(128, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnComment, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDelivery)
-                    .addComponent(lblOrderStatus))
-                .addGap(18, 18, 18)
-                .addComponent(btnComment)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(21, 21, 21))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblDelivery)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblOrderStatus)
+                        .addGap(73, 73, 73)
+                        .addComponent(btnPost)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnCommentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommentActionPerformed
-        // TODO add your handling code here:
-
-       PostComment view=new PostComment(this.userProcessContainer,this.ecosystem,this.order);
-            this.userProcessContainer.add("PostComment",view);
-            CardLayout layout=(CardLayout)this.userProcessContainer.getLayout();
-            layout.show(this.userProcessContainer, "PostComment");
-    }//GEN-LAST:event_btnCommentActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
@@ -163,14 +177,25 @@ public class ViewOrderDetail extends javax.swing.JPanel {
         layout.show(userProcessContainer, "ViewOrders");
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnPostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPostActionPerformed
+        // TODO add your handling code here:
+        order.setComment(this.txtComment.getText());
+        order.setStatus("Commented");
+        JOptionPane.showMessageDialog(null, "Comment posted!");
+        this.btnPost.setEnabled(false);
+    }//GEN-LAST:event_btnPostActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnComment;
+    private javax.swing.JButton btnPost;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblDelivery;
     private javax.swing.JLabel lblOrderStatus;
     private javax.swing.JTable tabOrders;
+    private javax.swing.JTextArea txtComment;
     // End of variables declaration//GEN-END:variables
 }

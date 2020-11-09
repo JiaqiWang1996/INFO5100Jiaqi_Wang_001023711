@@ -17,43 +17,49 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <Component id="btnBack" min="-2" pref="124" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnBack" min="-2" pref="84" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
+                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" alignment="1" min="-2" pref="653" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="btnView" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnDelete" min="-2" pref="114" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="btnView" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="653" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="131" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="jLabel7" min="-2" pref="32" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="214" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnView" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel7" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="btnBack" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="69" max="32767" attributes="0"/>
-              <Component id="btnBack" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="93" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <Component id="btnView" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace pref="64" max="32767" attributes="0"/>
+                      <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -61,6 +67,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="btnDelete">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="&#x5b8b;&#x4f53;" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Delete order"/>
       </Properties>
       <Events>
@@ -69,6 +78,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnView">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="&#x5b8b;&#x4f53;" size="14" style="3"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="View Detail"/>
       </Properties>
       <Events>
@@ -77,6 +89,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="&#x5b8b;&#x4f53;" size="18" style="3"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&lt;back"/>
       </Properties>
       <Events>
@@ -94,10 +109,29 @@
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="3" rowCount="4">
-                <Column editable="false" title="Restaurant" type="java.lang.Object"/>
-                <Column editable="false" title="Price" type="java.lang.Object"/>
-                <Column editable="false" title="Status" type="java.lang.Object"/>
+                <Column editable="false" title="Name of the restartant" type="java.lang.Object"/>
+                <Column editable="false" title="Total Price" type="java.lang.Object"/>
+                <Column editable="false" title="Current Status" type="java.lang.Object"/>
               </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -111,7 +145,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="My Orders"/>
+        <Property name="text" type="java.lang.String" value="All the orders"/>
       </Properties>
     </Component>
   </SubComponents>

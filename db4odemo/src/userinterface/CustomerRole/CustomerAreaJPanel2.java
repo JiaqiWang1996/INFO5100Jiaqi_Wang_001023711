@@ -5,6 +5,8 @@
 package userinterface.CustomerRole;
 
 import Business.EcoSystem;
+import Business.Restaurant.Order;
+import Business.Restaurant.Restaurant;
 
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.LabTestWorkRequest;
@@ -36,7 +38,7 @@ public class CustomerAreaJPanel2 extends javax.swing.JPanel {
     }
     
     public void populateRequestTable(){
-        
+       
     }
 
     
@@ -149,7 +151,7 @@ public class CustomerAreaJPanel2 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
-        
+ 
         
         
     }//GEN-LAST:event_requestTestJButtonActionPerformed

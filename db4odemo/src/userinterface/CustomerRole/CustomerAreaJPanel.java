@@ -31,6 +31,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
         this.account=account;
+        
         this.populate();
     }
     
@@ -63,7 +64,8 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         tabRestaurants = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
 
-        btnViewMenu.setText("View menu");
+        btnViewMenu.setFont(new java.awt.Font("宋体", 3, 14)); // NOI18N
+        btnViewMenu.setText("View all menus");
         btnViewMenu.setToolTipText("");
         btnViewMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,7 +73,8 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnViewOrders.setText("View orders");
+        btnViewOrders.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
+        btnViewOrders.setText("View all orders");
         btnViewOrders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewOrdersActionPerformed(evt);
@@ -80,17 +83,17 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
         tabRestaurants.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Name", "Restaurant Info"
+                "Name of the Restauant"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -107,28 +110,29 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnViewMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnViewOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(514, 514, 514))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnViewOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addContainerGap(165, Short.MAX_VALUE))
+                    .addComponent(btnViewMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnViewMenu)
-                    .addComponent(btnViewOrders))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addGap(87, 87, 87)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(btnViewMenu)
+                .addGap(27, 27, 27)
+                .addComponent(btnViewOrders)
+                .addGap(42, 42, 42))
         );
     }// </editor-fold>//GEN-END:initComponents
 

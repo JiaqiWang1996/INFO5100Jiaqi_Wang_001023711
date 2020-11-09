@@ -50,8 +50,8 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 if(i.getDeliveryManName()!=null&&i.getDeliveryManName().equals(this.userAccount.getUsername()))
                 {
                     Object row[] = new Object[4];
-                    row[0] = i.totalPrice();
                     row[1] = i;
+                    row[0] = i.totalPrice();
                     row[2] = i.getCusName();
                     row[3] = i.getStatus();
                     dtm.addRow(row);
@@ -86,11 +86,11 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Price", "Restaurant", "Customer", "Status"
+                "Name of Restaurant", "Total Price", "Customer", "Current Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true, false
+                true, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -99,35 +99,38 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(workRequestJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 650, 410));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 660, 100));
 
+        assignJButton.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         assignJButton.setText("Assign to me");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, -1, -1));
 
+        refreshJButton.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
+        processJButton.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         processJButton.setText("Set delivered");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, -1, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Process orders");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed

@@ -191,7 +191,7 @@ public class ManageRestaurantAdmin extends javax.swing.JPanel {
         int selectedRow = tabCustomers.getSelectedRow();
 
         if (selectedRow >= 0) {
-            String username = (String) tabCustomers.getValueAt(selectedRow, 1);
+            String username = (String) tabCustomers.getValueAt(selectedRow, 0);
             if(this.ecosystem.getUserAccountDirectory().removeUserAccount(username))
             {
                 JOptionPane.showMessageDialog(null, "Restaurant administrator deleted.");
@@ -212,7 +212,7 @@ public class ManageRestaurantAdmin extends javax.swing.JPanel {
         int selectedRow = tabCustomers.getSelectedRow();
 
         if (selectedRow >= 0) {
-            String username=tabCustomers.getValueAt(selectedRow, 1).toString();
+            String username=tabCustomers.getValueAt(selectedRow, 0).toString();
             ViewRestaurantAdminScreen view=new ViewRestaurantAdminScreen(this.userProcessContainer,this.ecosystem,username);
             this.userProcessContainer.add("ViewRestaurantAdminScreen",view);
             CardLayout layout=(CardLayout)this.userProcessContainer.getLayout();

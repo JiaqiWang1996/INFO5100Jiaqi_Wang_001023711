@@ -165,7 +165,7 @@ public class ManageCustomer extends javax.swing.JPanel {
         int selectedRow = tabCustomers.getSelectedRow();
 
         if (selectedRow >= 0) {
-            String username = (String) tabCustomers.getValueAt(selectedRow, 1);
+            String username = (String) tabCustomers.getValueAt(selectedRow, 0).toString();
             if(this.ecosystem.getUserAccountDirectory().removeUserAccount(username))
             {
                 JOptionPane.showMessageDialog(null, "Customer deleted.");

@@ -20,6 +20,8 @@ import Business.Role.Role.RoleType;
 import static Business.Role.Role.RoleType.RestaurantAdmin;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
@@ -37,6 +39,9 @@ public class ViewMenus extends javax.swing.JPanel {
     EcoSystem ecosystem;
     UserAccount account;
     Restaurant res;
+    Order cart;
+    private List<OrderItem> items=new ArrayList<OrderItem>();
+    
     /**
      * Creates new form CustomerManagementScreen
      */
@@ -53,7 +58,7 @@ public class ViewMenus extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "System error occurred! Please log out!");
         
         TableColumnModel tcm = tabMenu.getColumnModel();
-        tcm.getColumn(2).setCellEditor(new DefaultCellEditor(new JCheckBox()));
+       
     }
 public void populate()
     {
@@ -61,7 +66,7 @@ public void populate()
         dtm.setRowCount(0);
         for (MenuItem i:this.res.getMenus()) {
             
-                Object row[] = new Object[3];
+                Object row[] = new Object[2];
                 row[0] = i;
                 row[1] = i.getPrice();
                 //row[2] = new JCheckBox();
@@ -84,10 +89,18 @@ public void populate()
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabMenu = new javax.swing.JTable();
+        lblPrice = new javax.swing.JLabel();
+        btnDelete1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabMenu1 = new javax.swing.JTable();
+        btnOrder = new javax.swing.JButton();
+        QuantitySpinner = new javax.swing.JSpinner();
+        jLabel1 = new javax.swing.JLabel();
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel7.setText("View Menu");
+        jLabel7.setText("Menu page");
 
+        btnAddtoCart.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         btnAddtoCart.setText("Add to cart");
         btnAddtoCart.setToolTipText("");
         btnAddtoCart.addActionListener(new java.awt.event.ActionListener() {
@@ -96,20 +109,23 @@ public void populate()
             }
         });
 
-        btnDelete.setText("Delete");
+        btnDelete.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
+        btnDelete.setText("Remove the selected menu");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
 
-        btnView.setText("View Detail");
+        btnView.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
+        btnView.setText("surf the detailed INFO");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
             }
         });
 
+        btnBack.setFont(new java.awt.Font("宋体", 3, 18)); // NOI18N
         btnBack.setText("<back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,17 +135,49 @@ public void populate()
 
         tabMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Name", "Price"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabMenu);
+
+        lblPrice.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblPrice.setText("Calculated price: ");
+
+        btnDelete1.setFont(new java.awt.Font("宋体", 3, 14)); // NOI18N
+        btnDelete1.setText("Remove from cart");
+        btnDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelete1ActionPerformed(evt);
+            }
+        });
+
+        tabMenu1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null}
             },
             new String [] {
-                "Name", "Price", "Select"
+                "Name", "Price", "Quantity"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, true
@@ -143,7 +191,29 @@ public void populate()
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tabMenu);
+        tabMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabMenu1MouseClicked(evt);
+            }
+        });
+        tabMenu1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tabMenu1KeyTyped(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tabMenu1);
+
+        btnOrder.setFont(new java.awt.Font("宋体", 3, 14)); // NOI18N
+        btnOrder.setText("Place order");
+        btnOrder.setToolTipText("");
+        btnOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
+        jLabel1.setText("Quantity:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -151,60 +221,84 @@ public void populate()
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(193, 193, 193)
-                            .addComponent(btnAddtoCart)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnView)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel7))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(142, Short.MAX_VALUE))
+                        .addGap(97, 97, 97)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnAddtoCart, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblPrice)
+                                .addGap(89, 89, 89)
+                                .addComponent(btnDelete1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnOrder))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(163, 163, 163)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(214, 214, 214)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(QuantitySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnView)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnDelete))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBack)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnView)
-                    .addComponent(btnAddtoCart)
                     .addComponent(btnDelete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(16, 16, 16))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddtoCart)
+                    .addComponent(QuantitySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDelete1)
+                    .addComponent(btnOrder)
+                    .addComponent(lblPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(146, 146, 146))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddtoCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddtoCartActionPerformed
         // TODO add your handling code here:
-         Order tmp=new Order(this.account.getUsername(),this.res.getRestaurantName());
-        for(int i=0;i<tabMenu.getRowCount();i++)
-        {
-            Boolean isSelected=(Boolean)tabMenu.getValueAt(i, 2);
-            if(isSelected!=null&&isSelected)
-            { 
-                MenuItem item=(MenuItem)tabMenu.getValueAt(i, 0);
-                tmp.addOrderItem(new OrderItem(item,1));
-            }
+         int selectedRow = tabMenu.getSelectedRow();
+     int Q=(Integer)QuantitySpinner.getValue();
+        if (selectedRow >= 0&&Q>0) {
+            MenuItem item=(MenuItem)tabMenu.getValueAt(selectedRow, 0);
+            
+             OrderItem item1=new OrderItem(item,Q);
+            items.add(item1);
+           
+        populateOrdertable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row,you haven't selected any row");
         }
         
-        ViewShoppingCart viewCart=new ViewShoppingCart(this.userProcessContainer,this.ecosystem,this.account.getUsername(),this.res.getRestaurantName(),tmp);
-        this.userProcessContainer.add("ViewShoppingCart",viewCart);
-        
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+       
     }//GEN-LAST:event_btnAddtoCartActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -240,7 +334,7 @@ public void populate()
             CardLayout layout=(CardLayout)this.userProcessContainer.getLayout();
             layout.show(this.userProcessContainer, "ViewMenu");
         } else {
-            JOptionPane.showMessageDialog(null, "Please select a row.");
+            JOptionPane.showMessageDialog(null, "Please select a row,you haven't selected any row");
         }
     }//GEN-LAST:event_btnViewActionPerformed
 
@@ -251,14 +345,83 @@ public void populate()
         layout.show(userProcessContainer, "userMain");
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tabMenu1.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            OrderItem item = (OrderItem) tabMenu1.getValueAt(selectedRow,0);
+            if(this.cart.getItems().contains(item))
+            {
+                items.remove(item);
+                JOptionPane.showMessageDialog(null, "Item deleted.");
+                this.populateOrdertable();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Item not exist");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row.");
+        }
+        populate();
+    }//GEN-LAST:event_btnDelete1ActionPerformed
+
+    private void tabMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabMenu1MouseClicked
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_tabMenu1MouseClicked
+
+    private void tabMenu1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabMenu1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabMenu1KeyTyped
+
+    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
+        // TODO add your handling code here:
+        this.cart.setStatus("Submitted");
+        this.res.addOrder(this.cart);
+
+        //Display order detail and delivery info
+        JOptionPane.showMessageDialog(null, "We have received your order. Please wait...");
+        ViewOrders view=new ViewOrders(this.userProcessContainer,this.ecosystem,this.res.getRestaurantName(),this.account.getUsername());
+        this.userProcessContainer.remove(this);
+        this.userProcessContainer.add("ViewOrders",view);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.show(this.userProcessContainer, "ViewOrders");
+    }//GEN-LAST:event_btnOrderActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSpinner QuantitySpinner;
     private javax.swing.JButton btnAddtoCart;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDelete1;
+    private javax.swing.JButton btnOrder;
     private javax.swing.JButton btnView;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblPrice;
     private javax.swing.JTable tabMenu;
+    private javax.swing.JTable tabMenu1;
     // End of variables declaration//GEN-END:variables
+
+    private void populateOrdertable() {
+       //To change body of generated methods, choose Tools | Templates.
+        double totalPrice=0;
+        DefaultTableModel dtm = (DefaultTableModel) tabMenu1.getModel();
+        dtm.setRowCount(0);
+        for (OrderItem i:items) {          
+                Object row[] = new Object[3];
+                row[0] = i;
+                row[1] = i.getDishAndPrice().getPrice();
+                row[2] = i.getNum();
+                totalPrice+=i.getDishAndPrice().getPrice()*i.getNum();
+                dtm.addRow(row);
+            }
+        this.lblPrice.setText("Total price: "+totalPrice);
+    }
 }
