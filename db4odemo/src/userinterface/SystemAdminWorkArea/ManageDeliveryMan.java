@@ -64,36 +64,41 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         btnCreate = new javax.swing.JButton();
 
-        btnDelete.setText("Delete");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnDelete.setFont(new java.awt.Font("微软雅黑 Light", 1, 14)); // NOI18N
+        btnDelete.setText("Remove the deliveryman Info");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(369, 299, -1, -1));
 
-        btnView.setText("View  Detail");
+        btnView.setFont(new java.awt.Font("微软雅黑 Light", 1, 14)); // NOI18N
+        btnView.setText("Detailed Infomation");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
             }
         });
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 299, -1, -1));
 
+        btnBack.setFont(new java.awt.Font("宋体", 3, 18)); // NOI18N
         btnBack.setText("<back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 84, -1));
 
         tabCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "User Name", "Password"
+                "Username", "Password"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -106,54 +111,21 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabCustomers);
 
-        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel7.setText("Manage Delivery Men");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 67, 510, 214));
 
-        btnCreate.setText("Create new delivery man");
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel7.setText("Deliverman Management");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 0, -1, 32));
+
+        btnCreate.setFont(new java.awt.Font("微软雅黑 Light", 1, 14)); // NOI18N
+        btnCreate.setText("Create A New Deliveryman");
         btnCreate.setToolTipText("");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCreate)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnView)
-                        .addGap(16, 16, 16)
-                        .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel7)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(201, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreate)
-                    .addComponent(btnView)
-                    .addComponent(btnDelete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addContainerGap())
-        );
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 354, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

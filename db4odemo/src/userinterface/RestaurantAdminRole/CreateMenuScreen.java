@@ -43,51 +43,48 @@ public class CreateMenuScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         txtDishname = new javax.swing.JTextField();
-        txtNationality = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
         txtResaurantName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txtPassportExp = new javax.swing.JTextField();
-        txtPassportNum = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         btnCreate = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
 
-        txtNationality.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNationalityActionPerformed(evt);
-            }
-        });
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(txtDishname, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 177, 158, -1));
+        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 216, 158, -1));
 
         txtResaurantName.setToolTipText("Format: mm/dd/yy");
+        add(txtResaurantName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 138, 158, -1));
 
-        jLabel1.setText("Dish name");
+        jLabel1.setFont(new java.awt.Font("微软雅黑", 3, 14)); // NOI18N
+        jLabel1.setText("Name of Dish");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 179, 146, -1));
 
-        txtPassportExp.setToolTipText("Format: mm/dd/yy");
-
-        jLabel2.setText("Price");
+        jLabel2.setFont(new java.awt.Font("微软雅黑", 3, 14)); // NOI18N
+        jLabel2.setText("Selling Price");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 216, 146, -1));
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel7.setText("Create new menu");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 73, -1, -1));
 
+        btnBack.setFont(new java.awt.Font("宋体", 3, 18)); // NOI18N
         btnBack.setText("<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 109, 42));
 
-        jLabel3.setText("Restaurant name");
+        jLabel3.setFont(new java.awt.Font("微软雅黑", 3, 14)); // NOI18N
+        jLabel3.setText("Name of Restaurant ");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 138, -1, -1));
 
-        jLabel4.setText("Passport Number");
-
-        jLabel5.setText("Passport Expiration Date(mm/dd/yy)");
-
+        btnCreate.setFont(new java.awt.Font("微软雅黑 Light", 3, 14)); // NOI18N
         btnCreate.setText("Create");
         btnCreate.setActionCommand("Update");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -95,78 +92,8 @@ public class CreateMenuScreen extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-
-        jLabel6.setText("Nationality");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPassportExp, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtResaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNationality, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassportNum, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDishname, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCreate)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel7)
-                .addGap(80, 80, 80)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtDishname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtResaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtPassportNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtPassportExp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtNationality, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreate)
-                    .addComponent(btnBack))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 259, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtNationalityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNationalityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNationalityActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         CardLayout layout=(CardLayout)this.userProcessContainer.getLayout();
@@ -212,14 +139,8 @@ public class CreateMenuScreen extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField txtDishname;
-    private javax.swing.JTextField txtNationality;
-    private javax.swing.JTextField txtPassportExp;
-    private javax.swing.JTextField txtPassportNum;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtResaurantName;
     // End of variables declaration//GEN-END:variables

@@ -71,14 +71,19 @@ public class ViewOrderDetail extends javax.swing.JPanel {
         txtComment = new javax.swing.JTextArea();
         btnPost = new javax.swing.JButton();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel7.setText("Order Detail");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 0, -1, 32));
 
         lblDelivery.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         lblDelivery.setText("Delivery man:");
+        add(lblDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(467, 161, -1, -1));
 
         lblOrderStatus.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         lblOrderStatus.setText("Status:");
+        add(lblOrderStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(467, 287, -1, -1));
 
         btnBack.setFont(new java.awt.Font("宋体", 3, 18)); // NOI18N
         btnBack.setText("<back");
@@ -87,13 +92,11 @@ public class ViewOrderDetail extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 84, -1));
 
         tabOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Name of Dish", "Price"
@@ -109,12 +112,17 @@ public class ViewOrderDetail extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabOrders);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 38, 510, 95));
+
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel8.setText("We appreciate your timely feedback!!!");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 407, 391, 32));
 
         txtComment.setColumns(20);
         txtComment.setRows(5);
         jScrollPane2.setViewportView(txtComment);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 161, 391, 240));
 
         btnPost.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         btnPost.setText("Post the comment right now!");
@@ -123,51 +131,7 @@ public class ViewOrderDetail extends javax.swing.JPanel {
                 btnPostActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(159, 159, 159)
-                        .addComponent(jLabel7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnPost)
-                                    .addComponent(lblOrderStatus)
-                                    .addComponent(lblDelivery)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblDelivery)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblOrderStatus)
-                        .addGap(73, 73, 73)
-                        .addComponent(btnPost)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        add(btnPost, new org.netbeans.lib.awtextra.AbsoluteConstraints(467, 376, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

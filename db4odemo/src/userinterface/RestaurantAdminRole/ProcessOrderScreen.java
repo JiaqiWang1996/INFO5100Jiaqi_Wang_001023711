@@ -34,14 +34,14 @@ public class ProcessOrderScreen extends javax.swing.JPanel {
         this.order=order;
         this.populateDetail();
         this.populateDeliveryMen();
-        this.lblTotalPrice.setText("Total price: "+this.order.totalPrice());
+     
         //this.txtComment.setEnabled(false);
         //this.txtComment.setText(this.order.getComment());
-        
-        if(this.order.getDeliveryManName()!=null&&!this.order.getDeliveryManName().equals(""))
-            this.lblDeliveryMan.setText(this.order.getComment());
-        if(this.order.getStatus().equals("Commented"))
-            this.btnAssign.setVisible(false);
+//        
+//        if(this.order.getDeliveryManName()!=null&&!this.order.getDeliveryManName().equals(""))
+//            this.lblDeliveryMan.setText(this.order.getComment());
+//        if(this.order.getStatus().equals("Commented"))
+//            this.btnAssign.setVisible(false);
 
     }
     public void populateDetail()
@@ -79,40 +79,38 @@ public class ProcessOrderScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblDeliveryMan = new javax.swing.JLabel();
         btnAssign = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabOrders = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
-        lblTotalPrice = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabDeliveryMen = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
 
-        lblDeliveryMan.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        lblDeliveryMan.setText("Delivered by ");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnAssign.setText("Assign to this delivery man");
+        btnAssign.setFont(new java.awt.Font("宋体", 3, 14)); // NOI18N
+        btnAssign.setText("Select a deliveryman to distribute");
         btnAssign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignActionPerformed(evt);
             }
         });
+        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 337, 315, -1));
 
+        btnBack.setFont(new java.awt.Font("微软雅黑 Light", 3, 18)); // NOI18N
         btnBack.setText("<back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 104, -1));
 
         tabOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Dish", "Price"
@@ -133,18 +131,15 @@ public class ProcessOrderScreen extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabOrders);
 
-        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel7.setText("Delivery men list");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 57, 510, 102));
 
-        lblTotalPrice.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        lblTotalPrice.setText("Total price: ");
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel7.setText("All of the DeliveryMen");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 169, -1, 32));
 
         tabDeliveryMen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
                 "Name"
@@ -160,60 +155,11 @@ public class ProcessOrderScreen extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tabDeliveryMen);
 
-        jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel8.setText("Order Detail");
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 207, 510, 99));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(94, 94, 94)
-                        .addComponent(jLabel8))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(277, 277, 277)
-                                .addComponent(btnAssign, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(151, 151, 151)
-                                        .addComponent(jLabel7)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTotalPrice)
-                                    .addComponent(lblDeliveryMan))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBack)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAssign)
-                .addContainerGap(145, Short.MAX_VALUE))
-        );
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel8.setText("All the Orders ");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 10, -1, 32));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignActionPerformed
@@ -224,7 +170,7 @@ public class ProcessOrderScreen extends javax.swing.JPanel {
             UserAccount item = (UserAccount) tabDeliveryMen.getValueAt(selectedRow,0);
             this.order.setDeliveryManName(item.getUsername());
             this.order.setStatus("Delivery man assigned");
-            this.lblDeliveryMan.setText("Delivered by "+item.getUsername());
+            
             JOptionPane.showMessageDialog(null, "Delivery man assigned!");
             
         } else {
@@ -252,8 +198,6 @@ public class ProcessOrderScreen extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblDeliveryMan;
-    private javax.swing.JLabel lblTotalPrice;
     private javax.swing.JTable tabDeliveryMen;
     private javax.swing.JTable tabOrders;
     // End of variables declaration//GEN-END:variables

@@ -67,19 +67,20 @@ public class ManageRestaurantAdmin extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnBack.setFont(new java.awt.Font("微软雅黑", 3, 18)); // NOI18N
         btnBack.setText("<back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 115, -1));
 
         tabCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "User Name", "Password"
@@ -95,70 +96,39 @@ public class ManageRestaurantAdmin extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabCustomers);
 
-        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel7.setText("Manage Restaurant Administrators");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 51, 473, 125));
 
-        btnCreate.setText("Create new restaurant administrator");
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel7.setText("Restaurant Adminstrator Management");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 0, -1, 32));
+
+        btnCreate.setFont(new java.awt.Font("微软雅黑", 1, 14)); // NOI18N
+        btnCreate.setText("Create A New Restaurant Administrator");
         btnCreate.setToolTipText("");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 231, -1, -1));
 
-        btnDelete.setText("Delete");
+        btnDelete.setFont(new java.awt.Font("微软雅黑", 1, 14)); // NOI18N
+        btnDelete.setText("Remove the administrator Info");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 186, -1, -1));
 
-        btnView.setText("View Detail");
+        btnView.setFont(new java.awt.Font("微软雅黑", 1, 14)); // NOI18N
+        btnView.setText("Detailed Infomation");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCreate)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnView)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(186, 186, 186)))))
-                .addContainerGap(223, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreate)
-                    .addComponent(btnView)
-                    .addComponent(btnDelete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addContainerGap())
-        );
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 186, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -191,7 +161,7 @@ public class ManageRestaurantAdmin extends javax.swing.JPanel {
         int selectedRow = tabCustomers.getSelectedRow();
 
         if (selectedRow >= 0) {
-            String username = (String) tabCustomers.getValueAt(selectedRow, 0);
+            String username =  tabCustomers.getValueAt(selectedRow, 0).toString();
             if(this.ecosystem.getUserAccountDirectory().removeUserAccount(username))
             {
                 JOptionPane.showMessageDialog(null, "Restaurant administrator deleted.");

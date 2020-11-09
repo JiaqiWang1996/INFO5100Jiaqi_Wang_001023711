@@ -49,7 +49,7 @@ public class ViewMenus extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
-        btnView.setVisible(false);
+//        btnView.setVisible(false);
         this.account=this.ecosystem.getUserAccountDirectory().searchUserAccount(cusName);
         this.res=this.ecosystem.getRestaurantDirectory().searchRestaurantByName(resName);
         if(res!=null)
@@ -97,8 +97,11 @@ public void populate()
         QuantitySpinner = new javax.swing.JSpinner();
         jLabel1 = new javax.swing.JLabel();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel7.setText("Menu page");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 10, 112, 32));
 
         btnAddtoCart.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         btnAddtoCart.setText("Add to cart");
@@ -108,6 +111,7 @@ public void populate()
                 btnAddtoCartActionPerformed(evt);
             }
         });
+        add(btnAddtoCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, -1));
 
         btnDelete.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         btnDelete.setText("Remove the selected menu");
@@ -116,14 +120,16 @@ public void populate()
                 btnDeleteActionPerformed(evt);
             }
         });
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
 
         btnView.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
-        btnView.setText("surf the detailed INFO");
+        btnView.setText("View menu details");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
             }
         });
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, -1));
 
         btnBack.setFont(new java.awt.Font("宋体", 3, 18)); // NOI18N
         btnBack.setText("<back");
@@ -132,13 +138,11 @@ public void populate()
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 84, -1));
 
         tabMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Name", "Price"
@@ -154,8 +158,11 @@ public void populate()
         });
         jScrollPane1.setViewportView(tabMenu);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 48, 510, 96));
+
         lblPrice.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         lblPrice.setText("Calculated price: ");
+        add(lblPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, 32));
 
         btnDelete1.setFont(new java.awt.Font("宋体", 3, 14)); // NOI18N
         btnDelete1.setText("Remove from cart");
@@ -164,13 +171,11 @@ public void populate()
                 btnDelete1ActionPerformed(evt);
             }
         });
+        add(btnDelete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, -1, -1));
 
         tabMenu1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Name", "Price", "Quantity"
@@ -203,6 +208,8 @@ public void populate()
         });
         jScrollPane2.setViewportView(tabMenu1);
 
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 510, 97));
+
         btnOrder.setFont(new java.awt.Font("宋体", 3, 14)); // NOI18N
         btnOrder.setText("Place order");
         btnOrder.setToolTipText("");
@@ -211,76 +218,12 @@ public void populate()
                 btnOrderActionPerformed(evt);
             }
         });
+        add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, -1, -1));
+        add(QuantitySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         jLabel1.setText("Quantity:");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnAddtoCart, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblPrice)
-                                .addGap(89, 89, 89)
-                                .addComponent(btnDelete1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnOrder))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(163, 163, 163)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(214, 214, 214)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(QuantitySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnView)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnDelete))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(259, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBack)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnView)
-                    .addComponent(btnDelete))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddtoCart)
-                    .addComponent(QuantitySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDelete1)
-                    .addComponent(btnOrder)
-                    .addComponent(lblPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(146, 146, 146))
-        );
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddtoCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddtoCartActionPerformed
@@ -292,6 +235,10 @@ public void populate()
             
              OrderItem item1=new OrderItem(item,Q);
             items.add(item1);
+           
+            
+            
+         
            
         populateOrdertable();
         } else {
@@ -351,7 +298,7 @@ public void populate()
 
         if (selectedRow >= 0) {
             OrderItem item = (OrderItem) tabMenu1.getValueAt(selectedRow,0);
-            if(this.cart.getItems().contains(item))
+            if(items.contains(item))
             {
                 items.remove(item);
                 JOptionPane.showMessageDialog(null, "Item deleted.");
@@ -379,11 +326,17 @@ public void populate()
 
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
         // TODO add your handling code here:
-        this.cart.setStatus("Submitted");
-        this.res.addOrder(this.cart);
+       MenuItem item=new MenuItem();
+       item.setDishName("dish1");
+       item.setPrice(10);
+       OrderItem item1=new OrderItem(item, 1);
+        Order cart1=new Order("cus1", "res1");
+       cart1.addOrderItem(item1);
+        res.addOrder(cart1);
+       
 
         //Display order detail and delivery info
-        JOptionPane.showMessageDialog(null, "We have received your order. Please wait...");
+        JOptionPane.showMessageDialog(null, "The restaurant has already received your order. Wait for just a minute...");
         ViewOrders view=new ViewOrders(this.userProcessContainer,this.ecosystem,this.res.getRestaurantName(),this.account.getUsername());
         this.userProcessContainer.remove(this);
         this.userProcessContainer.add("ViewOrders",view);

@@ -80,10 +80,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Name of Restaurant", "Total Price", "Customer", "Current Status"
@@ -102,13 +99,13 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 660, 100));
 
         assignJButton.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
-        assignJButton.setText("Assign to me");
+        assignJButton.setText("Take the order myself");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, -1, -1));
 
         refreshJButton.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         refreshJButton.setText("Refresh");
@@ -117,7 +114,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
         processJButton.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         processJButton.setText("Set delivered");
@@ -129,8 +126,8 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel1.setText("Process orders");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jLabel1.setText("Orders processing");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed

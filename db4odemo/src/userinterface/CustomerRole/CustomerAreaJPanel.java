@@ -64,6 +64,8 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         tabRestaurants = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         btnViewMenu.setFont(new java.awt.Font("宋体", 3, 14)); // NOI18N
         btnViewMenu.setText("View all menus");
         btnViewMenu.setToolTipText("");
@@ -72,6 +74,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 btnViewMenuActionPerformed(evt);
             }
         });
+        add(btnViewMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 252, 163, -1));
 
         btnViewOrders.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         btnViewOrders.setText("View all orders");
@@ -80,13 +83,11 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 btnViewOrdersActionPerformed(evt);
             }
         });
+        add(btnViewOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 304, 207, -1));
 
         tabRestaurants.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
                 "Name of the Restauant"
@@ -102,38 +103,11 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabRestaurants);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 131, 510, 96));
+
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel7.setText("Select a Restaurant");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(514, 514, 514))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnViewOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnViewMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(btnViewMenu)
-                .addGap(27, 27, 27)
-                .addComponent(btnViewOrders)
-                .addGap(42, 42, 42))
-        );
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 12, -1, 32));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewMenuActionPerformed
