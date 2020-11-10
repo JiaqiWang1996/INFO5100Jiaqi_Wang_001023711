@@ -100,16 +100,16 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 660, 100));
 
         assignJButton.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
-        assignJButton.setText("Take the order myself");
+        assignJButton.setText("Accept the order ");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, -1, -1));
 
         processJButton.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
-        processJButton.setText("Set the order asdelivered");
+        processJButton.setText("Set the order as delivered");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 processJButtonActionPerformed(evt);

@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author raunak
  */
-public class CustomerAreaJPanel extends javax.swing.JPanel {
+public class CustomerMngWorkAreaJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
     EcoSystem ecosystem;
@@ -26,7 +26,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CustomerManagementScreen
      */
-    public CustomerAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem,UserAccount account) {
+    public CustomerMngWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem,UserAccount account) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
@@ -90,11 +90,11 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name of the Restauant"
+                "Name of the Restauant", "Restautant brief Info"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false
+                false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

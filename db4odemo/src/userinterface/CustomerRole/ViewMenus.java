@@ -239,7 +239,7 @@ public void populate()
              OrderItem item1=new OrderItem(item,Q);
             items.add(item1);
             
-         cart=new Order("cus1", "res1", items, item1.getOrderitemNumber());
+         cart=new Order(account.getUsername(), res.getRestaurantName(), items, item1.getOrderitemNumber());
            
         populateOrdertable();
         } else {
@@ -298,7 +298,7 @@ public void populate()
         int selectedRow = tabMenu1.getSelectedRow();
 
         if (selectedRow >= 0) {
-            OrderItem item = (OrderItem) tabMenu1.getValueAt(selectedRow,0);
+            OrderItem item = (OrderItem) tabMenu1.getValueAt(selectedRow,1);
             if(items.contains(item))
             {
                 items.remove(item);
@@ -313,7 +313,7 @@ public void populate()
         } else {
             JOptionPane.showMessageDialog(null, "Please select a row.");
         }
-        populate();
+       
     }//GEN-LAST:event_btnDelete1ActionPerformed
 
     private void tabMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabMenu1MouseClicked

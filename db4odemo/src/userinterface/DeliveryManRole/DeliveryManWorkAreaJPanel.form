@@ -76,14 +76,14 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="&#x5b8b;&#x4f53;" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Take the order myself"/>
+        <Property name="text" type="java.lang.String" value="Accept the order "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="assignJButtonActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="210" y="190" width="-1" height="-1"/>
+          <AbsoluteConstraints x="240" y="190" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -92,7 +92,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="&#x5b8b;&#x4f53;" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Set the order asdelivered"/>
+        <Property name="text" type="java.lang.String" value="Set the order as delivered"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="processJButtonActionPerformed"/>
