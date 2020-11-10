@@ -13,9 +13,20 @@ public class OrderItem {
     private MenuItem dishAndPrice;
     private int num;
     
+      private int orderitemNumber;
+    private static int count=0;
     public OrderItem()
     {
-        
+         count++;
+    orderitemNumber=count;
+    }
+
+    public int getOrderitemNumber() {
+        return orderitemNumber;
+    }
+
+    public void setOrderitemNumber(int orderitemNumber) {
+        this.orderitemNumber = orderitemNumber;
     }
 
     public OrderItem(MenuItem dishAndPrice, int num) {

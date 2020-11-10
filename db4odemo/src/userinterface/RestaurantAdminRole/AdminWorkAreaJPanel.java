@@ -62,7 +62,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 userJButtonActionPerformed(evt);
             }
         });
-        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 180, -1));
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 230, -1));
 
         manageEmployeeJButton.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         manageEmployeeJButton.setText("Manage menu");

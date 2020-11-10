@@ -6,6 +6,7 @@
 package userinterface.SystemAdminWorkArea;
 
 import Business.EcoSystem;
+import Business.Restaurant.Restaurant;
 import Business.Role.AdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -162,8 +163,10 @@ public class ManageRestaurantAdmin extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             String username =  tabCustomers.getValueAt(selectedRow, 0).toString();
-            if(this.ecosystem.getUserAccountDirectory().removeUserAccount(username))
+            if(this.ecosystem.getUserAccountDirectory().removeUserAccount(username)==true)
             {
+                Restaurant res=ecosystem.getRestaurantDirectory().searchRestaurantByAdmin(username);
+                this.ecosystem.getRestaurantDirectory().removeRestaurant(res);
                 JOptionPane.showMessageDialog(null, "Restaurant administrator deleted.");
                 this.populate();
             }

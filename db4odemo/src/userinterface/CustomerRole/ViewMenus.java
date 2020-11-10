@@ -178,14 +178,14 @@ public void populate()
 
             },
             new String [] {
-                "Name", "Price", "Quantity"
+                "OrderNumber", "Name", "Price", "Quantity"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                true, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -207,6 +207,9 @@ public void populate()
             }
         });
         jScrollPane2.setViewportView(tabMenu1);
+        if (tabMenu1.getColumnModel().getColumnCount() > 0) {
+            tabMenu1.getColumnModel().getColumn(0).setResizable(false);
+        }
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 510, 97));
 
@@ -235,10 +238,8 @@ public void populate()
             
              OrderItem item1=new OrderItem(item,Q);
             items.add(item1);
-           
             
-            
-         
+         cart=new Order("cus1", "res1", items, item1.getOrderitemNumber());
            
         populateOrdertable();
         } else {
@@ -326,13 +327,16 @@ public void populate()
 
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
         // TODO add your handling code here:
-       MenuItem item=new MenuItem();
-       item.setDishName("dish1");
-       item.setPrice(10);
-       OrderItem item1=new OrderItem(item, 1);
-        Order cart1=new Order("cus1", "res1");
-       cart1.addOrderItem(item1);
-        res.addOrder(cart1);
+        res.addOrder(cart);
+        this.ecosystem.getRestaurantDirectory().getRestaurantList().add(res);
+      
+//       MenuItem item=new MenuItem();
+//       item.setDishName("dish1");
+//       item.setPrice(10);
+//       OrderItem item1=new OrderItem(item, 1);
+//        Order cart1=new Order("cus1", "res1");
+//       cart1.addOrderItem(item1);
+//        res.addOrder(cart1);
        
 
         //Display order detail and delivery info
@@ -368,10 +372,11 @@ public void populate()
         DefaultTableModel dtm = (DefaultTableModel) tabMenu1.getModel();
         dtm.setRowCount(0);
         for (OrderItem i:items) {          
-                Object row[] = new Object[3];
-                row[0] = i;
-                row[1] = i.getDishAndPrice().getPrice();
-                row[2] = i.getNum();
+                Object row[] = new Object[4];
+                row[0]=i.getOrderitemNumber();
+                row[1] = i;
+                row[2] = i.getDishAndPrice().getPrice();
+                row[3] = i.getNum();
                 totalPrice+=i.getDishAndPrice().getPrice()*i.getNum();
                 dtm.addRow(row);
             }

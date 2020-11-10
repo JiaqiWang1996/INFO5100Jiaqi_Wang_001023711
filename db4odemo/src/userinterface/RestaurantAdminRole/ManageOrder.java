@@ -134,6 +134,8 @@ public class ManageOrder extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             Order item = (Order) tabMenu.getValueAt(selectedRow,0);
+            item.setStatus("restaurant has accepted your order");
+            populate();
             if(this.res.getOrders().contains(item))
             {
                 ProcessOrderScreen processOrder=new ProcessOrderScreen(this.userProcessContainer,this.ecosystem,item);

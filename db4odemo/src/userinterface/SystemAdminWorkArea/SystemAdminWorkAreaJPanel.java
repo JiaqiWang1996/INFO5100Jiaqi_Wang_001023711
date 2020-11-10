@@ -33,10 +33,30 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }
     
     public void populateTree(){
-        DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
-       // Add the code for draw your system structure shown by JTree
        
-        model.reload();
+       // Add the code for draw your system structure shown by JTree
+//        DefaultMutableTreeNode node1 = new DefaultMutableTreeNode( "软件部" );
+//         node1.add( new DefaultMutableTreeNode( new User( "小花" )));
+//         node1.add( new DefaultMutableTreeNode( new User( "小虎" )));
+//         node1.add( new DefaultMutableTreeNode( new User( "小龙" )));
+// 
+//         DefaultMutableTreeNode node2 = new DefaultMutableTreeNode( "销售部" );
+//         node2.add( new DefaultMutableTreeNode( new User( "小叶" )));
+//         node2.add( new DefaultMutableTreeNode( new User( "小雯" )));
+//         node2.add( new DefaultMutableTreeNode( new User( "小夏" )));
+// 
+//         DefaultMutableTreeNode top = new DefaultMutableTreeNode( "职员管理" );
+// 
+//         top.add( new DefaultMutableTreeNode( new User( "总经理" )));
+//         top.add(node1);
+//         top.add(node2);
+//         final JTree tree = new JTree(top);
+//         JFrame f = new JFrame( "JTreeDemo" );
+//         f.add(tree);
+//         f.setSize( 300 , 300 );
+//         f.setVisible( true );
+//         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        model.reload();
     }
     /**
      * This method is called from within the constructor to initialize the form.

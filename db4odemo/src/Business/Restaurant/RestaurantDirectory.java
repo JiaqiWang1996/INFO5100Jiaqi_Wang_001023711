@@ -46,4 +46,9 @@ public class RestaurantDirectory {
     public List<Restaurant> getRestaurantList() {
         return restaurantList;
     }
+
+    public void removeRestaurant(Restaurant res) {
+        //To change body of generated methods, choose Tools | Templates.
+        this.restaurantList.remove(res);
+    }
 }

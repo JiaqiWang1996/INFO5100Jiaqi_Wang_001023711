@@ -16,19 +16,51 @@ public class Order {
     private String cusName;
     private String resName;
     private List<OrderItem> items=new ArrayList<OrderItem>();
-    private String status="initial";
+    private String status="wait for distribution!!!";
     private String deliveryManName="";
     private String comment="";
-    public Order(String cusName,String resName)
-    {
-        this.cusName=cusName;
-        this.resName=resName;
+    
+    
+    private int orderNumber;
+    private static int count=0;
+
+    public Order(String cusName, String resName, List<OrderItem> items, int orderNumber) {
+       
+          count++;
+    orderNumber=count;
+        this.cusName = cusName;
+        this.resName = resName;
+        this.items = items;
+        this.orderNumber = orderNumber;
+        
+    }
+
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(int orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        Order.count = count;
     }
 
     public String getCusName() {
         return cusName;
     }
     
+//     public void addOrderItem(MenuItem i,int num){
+//     OrderItem oi=new OrderItem();
+//     oi.setDishAndPrice(i);
+//     oi.setNum(num);
+//     items.add(oi);
+//     }
     public void addOrderItem(OrderItem i)
     {
         for(OrderItem o:items)
