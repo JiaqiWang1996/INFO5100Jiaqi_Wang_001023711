@@ -59,7 +59,6 @@ public class CustomerMngWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnViewMenu = new javax.swing.JButton();
-        btnViewOrders = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabRestaurants = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
@@ -67,23 +66,14 @@ public class CustomerMngWorkAreaJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnViewMenu.setFont(new java.awt.Font("宋体", 3, 14)); // NOI18N
-        btnViewMenu.setText("View all menus");
+        btnViewMenu.setText("View restaurant's menus");
         btnViewMenu.setToolTipText("");
         btnViewMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewMenuActionPerformed(evt);
             }
         });
-        add(btnViewMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 252, 163, -1));
-
-        btnViewOrders.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
-        btnViewOrders.setText("View all orders");
-        btnViewOrders.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewOrdersActionPerformed(evt);
-            }
-        });
-        add(btnViewOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 304, 207, -1));
+        add(btnViewMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 250, -1));
 
         tabRestaurants.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -124,25 +114,8 @@ public class CustomerMngWorkAreaJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnViewMenuActionPerformed
 
-    private void btnViewOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrdersActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = tabRestaurants.getSelectedRow();
-        
-        if (selectedRow >= 0) {
-            Restaurant res=(Restaurant)tabRestaurants.getValueAt(selectedRow, 0);
-            ViewOrders view=new ViewOrders(this.userProcessContainer,this.ecosystem,res.getRestaurantName(),this.account.getUsername());
-            this.userProcessContainer.add("ViewOrders",view);
-            CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-            layout.show(this.userProcessContainer, "ViewOrders");
-        } else {
-            JOptionPane.showMessageDialog(null, "Please select a row.");
-        }
-
-    }//GEN-LAST:event_btnViewOrdersActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnViewMenu;
-    private javax.swing.JButton btnViewOrders;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabRestaurants;
